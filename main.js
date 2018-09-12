@@ -15,7 +15,7 @@ document.querySelector('.form').addEventListener('submit', (e) => {
 
     addItem(e.target.elements.input1.value) // todos ++
     e.target.elements.input1.value = '' // cleans the input
-    renderFilteredTodos(todos)
+    renderFilteredTodos(todos) // renders updated todos to users screen
     sendToStorage(todos) // send new todos to l.storage
 })
 

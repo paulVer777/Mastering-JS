@@ -30,7 +30,6 @@ const addItem = (title) => {
     })
 }
 
-
 /////// RENDERS TODOS TO USER SCREEN
 
 const renderFilteredTodos = (arr) => {
@@ -56,7 +55,7 @@ const createDOMItem = item => {
     span.textContent = item.title
 
     button.textContent = 'x'
-    button.addEventListener('click', ()=> removeItem(item.id))
+    button.addEventListener('click', () => removeItem(item.id))
 
     div.appendChild(span)
     div.appendChild(button)
@@ -64,7 +63,13 @@ const createDOMItem = item => {
 
 }
 
+//////REMOVES ITEM FROM AN ARRAY///////////
 
-//////DELETES TODO FROM AN ARRAY///////////
 
+const removeItem=(id)=>{
 
+ const index=todos.findIndex((value,index) => id == value.id)
+ todos.splice(index,1)
+ sendToStorage(todos)
+ renderFilteredTodos(todos)
+}
