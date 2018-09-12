@@ -2,12 +2,19 @@ const todos = getItemsStorage()
 
 
 const filters = {
-
+    filter: ''
 
 }
 
 renderFilteredTodos(todos)
 
+
+
+document.querySelector('.find').addEventListener('input', (e) => {
+
+    filters.filter = e.target.value
+    renderFilteredTodos(todos)
+})
 
 document.querySelector('.form').addEventListener('submit', (e) => {
 
@@ -18,4 +25,3 @@ document.querySelector('.form').addEventListener('submit', (e) => {
     renderFilteredTodos(todos) // renders updated todos to users screen
     sendToStorage(todos) // send new todos to l.storage
 })
-

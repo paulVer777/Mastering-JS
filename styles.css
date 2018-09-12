@@ -8,7 +8,7 @@ html {
 }
 
 
-body{
+body {
     padding: 2rem;
     font-size: 2rem;
 }
@@ -26,3 +26,8 @@ body{
     background-color: brown;
     padding: 2rem;
 } */
+
+
+.todos {
+    margin-top: 4rem;
+}

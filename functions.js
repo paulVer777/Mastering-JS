@@ -17,7 +17,7 @@ const getItemsStorage = () => {
     return items ? JSON.parse(items) : []
 }
 
-/////  ADDS ITEMS TO ARRAY OF TODOS 
+///////// ADDS ITEMS TO ARRAY OF TODOS ///////////////////
 
 const addItem = (title) => {
 
@@ -30,21 +30,29 @@ const addItem = (title) => {
     })
 }
 
-/////// RENDERS TODOS TO USER SCREEN
+/////// RENDERS TODOS TO USER SCREEN ///////////////
 
 const renderFilteredTodos = (arr) => {
 
-    document.querySelector('.todos').innerHTML=''
+    let filteredTodos = arr.filter((value, index) => value.title.toLowerCase().includes(filters.filter.toLocaleLowerCase()))
 
-    arr.forEach((value, index) => {
 
-        const element = createDOMItem(value)
-        document.querySelector('.todos').appendChild(element)
 
-    })
+    document.querySelector('.todos').innerHTML = ''
+
+    if (!filteredTodos.length) {
+        document.querySelector('.todos').textContent = 'Nothing found'
+    } else {
+        filteredTodos.forEach((value, index) => {
+
+
+            const element = createDOMItem(value)
+            document.querySelector('.todos').appendChild(element)
+        })
+    }
 }
 
-///////////// CREATES DOM ITEM
+///////////// CREATES DOM ITEM //////////////////////
 
 const createDOMItem = item => {
 
@@ -63,13 +71,14 @@ const createDOMItem = item => {
 
 }
 
-//////REMOVES ITEM FROM AN ARRAY///////////
+//////REMOVES ITEM FROM AN ARRAY////////////////////////
 
 
-const removeItem=(id)=>{
+const removeItem = (id) => {
 
- const index=todos.findIndex((value,index) => id == value.id)
- todos.splice(index,1)
- sendToStorage(todos)
- renderFilteredTodos(todos)
+    const index = todos.findIndex((value, index) => id == value.id)
+    todos.splice(index, 1)
+
+    sendToStorage(todos)
+    renderFilteredTodos(todos)
 }
