@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+body{
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+
+.h1-home {
+    text-align: center;
+    padding: 4rem;
+    font-size: 3rem;
+}
+
+/* .box{
+    width: 350px;
+    height:350px;
+    background-color: brown;
+    padding: 2rem;
+} */
