@@ -31,3 +31,7 @@ body {
 .todos {
     margin-top: 4rem;
 }
+
+.completed{
+    display: block;
+}

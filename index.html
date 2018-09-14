@@ -11,18 +11,44 @@
 
 <body>
     <h1 class='h1-home'>Organizer</h1>
+    <div class="completed">
+        <label>
+            <input type="checkbox" class="input-completed"> Hide completed
+        </label>
+    </div>
+
 
     <label>
         <input type="text" class="find"> Find
     </label>
+
+    <label>
+        <select class="sorting">
+            <option value='Alphabetically'>Alphabetically</option>
+            <option value='last-edited'> By last edited</option>
+            <option value='created'>By created</option>
+        </select>
+    </label>
+
+
+
 
     <form class="form">
         <input type='text' class='input input-add' name="input1">
         <button>Add</button>
     </form>
 
+
+
+
     <div class='todos'></div>
 
+
+
+
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js'></script>
     <script src="uidFunction.js"></script>
     <script src='functions.js'></script>
     <script src='main.js'></script>
