@@ -35,14 +35,10 @@ const addItem = (title) => {
 const renderFilteredTodos = (arr) => {
 
 
+    let filteredTodos = sorting(arr, filters.sortBy)
 
 
-
-
-    
-
-
-    let filteredTodos = arr.filter((value, index) => value.title.toLowerCase().includes(filters.filter.toLocaleLowerCase()))
+    filteredTodos = arr.filter((value, index) => value.title.toLowerCase().includes(filters.filter.toLocaleLowerCase()))
 
     filteredTodos = filteredTodos.filter((value, index) => filters.hideCompleted ? !value.completed : true)
 
@@ -119,3 +115,45 @@ const removeItem = (id) => {
 ///CALCULATES HOW MANY TIME PASSED SINCE LAST EDITION  ////////////
 
 const lastEditionTime = (time) => time ? `The last edition was ${moment(time).fromNow()}` : ` This item hasn't been edited yet`
+
+////SORTING FUNCTION
+
+sorting = (arr, filter) => {
+
+    return arr.sort((a, b) => {
+
+        if (filter === 'alphabetically') return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
+        if (filter === 'created') return a.createdAt < b.createdAt ? -1 : 1
+        if (filter === 'last-edited') return a.editedAt > b.editedAt ? -1 : 1
+    })
+
+}
+
+
+
+const tablica = [3, 2, 6, 1]
+
+tablica.sort((a, b) => {
+    a < b ? -1 : 1
+})
+
+console.log(tablica)
+
+
+////Downloads quotes
+
+const getQuote = async () => {
+
+    const response = await fetch('https://talaikis.com/api/quotes/random/')
+
+    if (response.status === 200) {
+
+        const quote = await response.json()
+        document.querySelector('.quote').textContent=quote.quote
+        
+    } else {
+        throw new Error('upsy')
+    }
+}
+
+

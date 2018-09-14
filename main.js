@@ -4,7 +4,7 @@ const todos = getItemsStorage()
 const filters = {
     filter: '',
     hideCompleted: false,
-    sortBy: ''
+    sortBy: 'alphabetically'
 }
 
 renderFilteredTodos(todos)
@@ -42,8 +42,7 @@ document.querySelector('.sorting').addEventListener('change', (e) => {
 
 
     filters.sortBy = e.target.value
-
-
-
-
+    renderFilteredTodos(todos)
+    console.log(filters)
 })
+getQuote().catch((e)=>alert(e))
